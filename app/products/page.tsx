@@ -19,28 +19,29 @@ export default function ProductsPage() {
       subtitle="Every Andrews Premium product is crafted from hand-selected pork, processed in our certified facility, and packed for peak freshness."
       breadcrumb="Products"
     >
-      <div className="max-w-7xl mx-auto px-6 py-20">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {products.map((p) => (
-            <div key={p.name} className="bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group">
+            <div key={p.name} className="bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group touch-manipulation">
               {/* Product Image */}
               <div className="aspect-[4/3] bg-gray-50 relative overflow-hidden">
                 <Image
                   src={p.image}
                   alt={p.name}
                   fill
-                  className="object-contain p-4"
+                  className="object-contain p-3 sm:p-4"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  loading="lazy"
                 />
-                <div className="absolute top-3 left-3 bg-[#CC0000] text-white text-[10px] font-bold px-2.5 py-1 rounded-full z-10">{p.tag}</div>
+                <div className="absolute top-2 sm:top-3 left-2 sm:left-3 bg-[#CC0000] text-white text-[9px] sm:text-[10px] font-bold px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full z-10">{p.tag}</div>
               </div>
-              <div className="p-5">
-                <p className="text-[#e91d26] text-[10px] font-bold tracking-[0.2em] uppercase mb-1">{p.category}</p>
-                <h3 className="font-bold text-gray-900 text-base mb-2">{p.name}</h3>
-                <p className="text-gray-500 text-sm leading-relaxed mb-4">{p.desc}</p>
-                <a href="/contact" className="inline-flex items-center gap-1 text-[#e91d26] text-sm font-semibold hover:gap-2 transition-all duration-200">
+              <div className="p-4 sm:p-5">
+                <p className="text-[#e91d26] text-[9px] sm:text-[10px] font-bold tracking-[0.2em] uppercase mb-1">{p.category}</p>
+                <h3 className="font-bold text-gray-900 text-sm sm:text-base mb-2">{p.name}</h3>
+                <p className="text-gray-500 text-xs sm:text-sm leading-relaxed mb-3 sm:mb-4">{p.desc}</p>
+                <a href="/contact" className="inline-flex items-center gap-1 text-[#e91d26] text-xs sm:text-sm font-semibold hover:gap-2 transition-all duration-200 touch-manipulation">
                   Enquire Now
-                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg className="w-3 h-3 sm:w-4 sm:h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </a>

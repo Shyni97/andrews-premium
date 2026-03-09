@@ -24,24 +24,42 @@
 
 html {
   scroll-behavior: smooth;
-  overflow-x: hidden; /* contain horizontal overflow at html level, not body */
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch; /* iOS momentum scrolling */
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
-  /* No overflow-x hidden on body — causes scroll to lock on some browsers */
+  overflow-x: hidden;
+  /* Prevent scroll jank */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 /* Promote sections to their own composite layer so scroll doesn't repaint them */
 section {
   transform: translateZ(0);
+  will-change: auto;
 }
 
-/* GPU-accelerate all Framer Motion animated divs */
+/* GPU-accelerate animated elements */
 [style*="transform"] {
   backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+/* Optimize animations for performance */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+img, video {
+  max-width: 100%;
+  height: auto;
 }
 
 /* Custom scrollbar */

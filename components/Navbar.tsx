@@ -22,24 +22,26 @@ export default function Navbar() {
     <motion.header
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.5 }}
-      className="fixed top-0 left-0 right-0 z-50 bg-[#ffffff]"
+      transition={{ duration: 0.4, ease: "easeOut" }}
+      className="fixed top-0 left-0 right-0 z-50 bg-[#ffffff] shadow-sm"
+      style={{ willChange: "transform" }}
     >
-      <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2">
-          <div className="w-14 h-14 relative flex-shrink-0">
+        <Link href="/" className="flex items-center gap-2 flex-shrink-0">
+          <div className="w-12 h-12 sm:w-14 sm:h-14 relative flex-shrink-0">
           <Image
             src="/andrew1.png"
             alt="Andrews Logo"
             fill
             className="object-contain"
             priority
+            quality={90}
           />
         </div>
           <div className="flex flex-col leading-none">
-            <span className="text-black font-black text-base tracking-wide">ANDREWS</span>
-            <span className="text-black/50 text-[9px] tracking-[0.25em] uppercase">Premium</span>
+            <span className="text-black font-black text-sm sm:text-base tracking-wide">ANDREWS</span>
+            <span className="text-black/50 text-[8px] sm:text-[9px] tracking-[0.25em] uppercase">Premium</span>
           </div>
         </Link>
 
@@ -81,7 +83,7 @@ export default function Navbar() {
         {/* Mobile Hamburger */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="md:hidden flex flex-col gap-1.5 p-2"
+          className="md:hidden flex flex-col gap-1.5 p-2 touch-manipulation"
           aria-label="Toggle menu"
         >
           {[0, 1, 2].map((i) => (
@@ -92,7 +94,7 @@ export default function Navbar() {
                   ? i === 0 ? { rotate: 45, y: 8 } : i === 1 ? { opacity: 0 } : { rotate: -45, y: -8 }
                   : { rotate: 0, y: 0, opacity: 1 }
               }
-              transition={{ duration: 0.2 }}
+              transition={{ duration: 0.2, ease: "easeInOut" }}
               className="block w-6 h-0.5 bg-black"
             />
           ))}
@@ -106,9 +108,10 @@ export default function Navbar() {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            className="md:hidden overflow-hidden bg-[#1a1a1a] border-t border-white/10"
+            transition={{ duration: 0.2, ease: "easeInOut" }}
+            className="md:hidden overflow-hidden bg-white border-t border-gray-200"
           >
-            <nav className="flex flex-col px-6 py-4 gap-4">
+            <nav className="flex flex-col px-6 py-4 gap-2">
               {navLinks.map((link) => {
                 const isActive = pathname === link.href;
                 return (
@@ -116,8 +119,8 @@ export default function Navbar() {
                     key={link.label}
                     href={link.href}
                     onClick={() => setMenuOpen(false)}
-                    className={`text-sm py-2 border-b border-white/10 transition-colors ${
-                      isActive ? "text-[#CC0000] font-semibold" : "text-black/80 hover:text-[#CC0000]"
+                    className={`text-sm py-3 border-b border-gray-100 transition-colors touch-manipulation ${
+                      isActive ? "text-[#235c38] font-semibold" : "text-gray-700 hover:text-[#235c38]"
                     }`}
                   >
                     {link.label}

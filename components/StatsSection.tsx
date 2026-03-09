@@ -34,24 +34,6 @@ export default function StatsSection() {
           <div className="w-10 h-1 bg-[#235c38] mt-3" />
         </motion.div>
 
-        {/* Process Video */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="mb-14 rounded-xl overflow-hidden shadow-lg aspect-video w-full"
-        >
-          <video
-            className="w-full h-full object-cover"
-            src="/process-video.mp4"
-            controls
-            autoPlay
-            muted
-            loop
-            playsInline
-          />
-        </motion.div>
-
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
           {steps.map((step, i) => (
             <motion.div

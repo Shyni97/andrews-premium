@@ -50,10 +50,8 @@ export default function ProductsSection() {
               key={cat.name}
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
-              whileHover={{ y: -8, boxShadow: "0 24px 48px rgba(0,0,0,0.18)" }}
-              className="group relative overflow-hidden bg-gray-100 cursor-pointer rounded-sm"
-              style={{ willChange: "transform" }}
+              transition={{ duration: 0.5, delay: i * 0.08, ease: "easeOut" }}
+              className="group relative overflow-hidden bg-gray-100 cursor-pointer rounded-sm hover:-translate-y-2 hover:shadow-xl transition-all duration-300"
             >
               {/* Image placeholder */}
               <div className="aspect-square bg-gradient-to-br from-gray-200 to-gray-100 relative overflow-hidden">
@@ -61,8 +59,9 @@ export default function ProductsSection() {
                   src={cat.image}
                   alt={cat.name}
                   fill
-                  className="object-contain p-4 scale-100 group-hover:scale-110 transition-transform duration-500 ease-out"
+                  className="object-contain p-4 group-hover:scale-105 transition-transform duration-300 ease-out"
                   sizes="(max-width: 640px) 50vw, (max-width: 1024px) 25vw, 20vw"
+                  loading="lazy"
                 />
                 {/* Dark overlay on hover */}
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/45 transition-colors duration-300" />
