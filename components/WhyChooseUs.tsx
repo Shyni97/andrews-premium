@@ -2,6 +2,7 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import Image from "next/image";
 
 export default function WhyChooseUs() {
   const ref = useRef(null);
@@ -20,12 +21,26 @@ export default function WhyChooseUs() {
           >
             <div className="relative w-full h-full min-h-[420px] flex flex-col rounded-tr-[2.5rem] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.18)]">
               {/* Top image */}
-              <div className="flex-1 bg-gray-200 flex items-center justify-center relative overflow-hidden border-b-2 border-white group">
-                <div className="absolute inset-0 bg-[url('/img3.jpg')] bg-cover bg-center scale-100 group-hover:scale-105 transition-transform duration-500 ease-out" />
+              <div className="flex-1 bg-gray-200 relative overflow-hidden border-b-2 border-white group">
+                <Image
+                  src="/img3.jpg"
+                  alt="Andrews Premium Products"
+                  fill
+                  className="object-cover scale-100 group-hover:scale-105 transition-transform duration-500 ease-out"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  quality={85}
+                />
               </div>
               {/* Bottom image */}
-              <div className="flex-1 bg-gray-300 flex items-center justify-center relative overflow-hidden group">
-                <div className="absolute inset-0 bg-[url('/img2.jpg')] bg-cover bg-center scale-100 group-hover:scale-105 transition-transform duration-500 ease-out" />
+              <div className="flex-1 bg-gray-300 relative overflow-hidden group">
+                <Image
+                  src="/img2.jpg"
+                  alt="Andrews Premium Quality"
+                  fill
+                  className="object-cover scale-100 group-hover:scale-105 transition-transform duration-500 ease-out"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  quality={85}
+                />
               </div>
             </div>
             {/* Badge overlay */}

@@ -18,8 +18,8 @@ export default function StatsSection() {
 
   return (
     <section ref={ref} className="relative py-24 overflow-hidden bg-white">
-      {/* Background food image */}
-      <div className="absolute inset-0 bg-[url('/process-bg.jpg')] bg-cover bg-center opacity-15" />
+      {/* Background subtle pattern */}
+      <div className="absolute inset-0 bg-gray-50/50" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         <motion.div

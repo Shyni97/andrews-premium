@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function HeroSection() {
   return (
@@ -16,7 +17,17 @@ export default function HeroSection() {
       />
 
       {/* Background image */}
-      <div className="absolute inset-0 bg-[url('/pork3.jpg')] bg-cover bg-center opacity-70 will-change-auto" />
+      <div className="absolute inset-0 opacity-70">
+        <Image
+          src="/pork3.jpg"
+          alt="Andrews Premium Background"
+          fill
+          className="object-cover"
+          priority
+          quality={85}
+          sizes="100vw"
+        />
+      </div>
 
       {/* Gradient overlays */}
       <div className="absolute inset-0 bg-gradient-to-br from-black/95 via-black/80 to-transparent" />

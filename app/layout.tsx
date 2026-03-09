@@ -30,6 +30,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
+      <head>
+        <link rel="preload" href="/pork3.jpg" as="image" />
+        <link rel="preload" href="/andrew1.png" as="image" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

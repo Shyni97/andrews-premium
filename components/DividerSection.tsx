@@ -2,6 +2,7 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import Image from "next/image";
 
 const socialLinks = [
   { label: "f", href: "#", color: "bg-[#1877F2]" },
@@ -18,11 +19,17 @@ export default function DividerSection() {
       ref={ref}
       className="relative min-h-[480px] md:min-h-[560px] flex items-center justify-center overflow-hidden"
     >
-      {/* Background image — GPU-composited via transform, NOT backgroundAttachment:fixed */}
-      <div
-        className="absolute inset-[-8%] bg-[url('/divider.jpg')] bg-cover bg-center"
-        style={{ willChange: "transform" }}
-      />
+      {/* Background image */}
+      <div className="absolute inset-0">
+        <Image
+          src="/divider.jpg"
+          alt="Andrews Premium Divider"
+          fill
+          className="object-cover"
+          sizes="100vw"
+          quality={85}
+        />
+      </div>
       {/* Dark overlay */}
       <div className="absolute inset-0 bg-black/55" />
 

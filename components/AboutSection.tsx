@@ -2,6 +2,7 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import Image from "next/image";
 
 export default function AboutSection() {
   const ref = useRef(null);
@@ -19,7 +20,14 @@ export default function AboutSection() {
             className="relative bg-white min-h-[600px] flex items-center justify-center p-8 lg:p-12"
           >
             <div className="relative w-full min-h-[360px] h-full rounded-tr-[2.5rem] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.18)] group">
-              <div className="absolute inset-0 bg-[url('/about.jpg')] bg-cover bg-center scale-100 group-hover:scale-105 transition-transform duration-500 ease-out" />
+              <Image
+                src="/about.jpg"
+                alt="Andrews Premium About"
+                fill
+                className="object-cover scale-100 group-hover:scale-105 transition-transform duration-500 ease-out"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                quality={85}
+              />
               <div className="absolute inset-0 bg-black/10 group-hover:bg-black/5 transition-colors duration-300" />
             </div>
           </motion.div>
