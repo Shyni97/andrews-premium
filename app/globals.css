@@ -3,6 +3,9 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --brand-green: #235c38;
+  --brand-red: #e91d26;
+  --brand-brown: #e47f24;
 }
 
 @theme inline {
@@ -12,15 +15,69 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+*,
+*::before,
+*::after {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden; /* contain horizontal overflow at html level, not body */
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  /* No overflow-x hidden on body — causes scroll to lock on some browsers */
+}
+
+/* Promote sections to their own composite layer so scroll doesn't repaint them */
+section {
+  transform: translateZ(0);
+}
+
+/* GPU-accelerate all Framer Motion animated divs */
+[style*="transform"] {
+  backface-visibility: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0e0e0e;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--brand-green);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #1a4529;
+}
+
+/* Selection color */
+::selection {
+  background: var(--brand-green);
+  color: #fff;
+}
+
+/* Respect reduced motion — disable Framer Motion transforms by disabling animations */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Smooth image rendering */
+img {
+  image-rendering: -webkit-optimize-contrast;
 }
