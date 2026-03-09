@@ -78,9 +78,9 @@ export default function AndrewsDifference() {
             Why Andrews Premium
           </motion.span>
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.1 }}
+            transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
             className="text-4xl md:text-5xl font-black text-gray-900 mb-4"
           >
             The Andrews Difference
@@ -88,7 +88,7 @@ export default function AndrewsDifference() {
           <motion.p
             initial={{ opacity: 0, y: 10 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.4, delay: 0.2, ease: "easeOut" }}
             className="text-gray-500 text-lg max-w-xl mx-auto"
           >
             It&apos;s not just what we put in our products — it&apos;s what we do not put
@@ -101,20 +101,16 @@ export default function AndrewsDifference() {
           {features.map((f, i) => (
             <motion.div
               key={f.title}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.55, delay: 0.1 + i * 0.08, ease: [0.16, 1, 0.3, 1] }}
-              whileHover={{ y: -8, boxShadow: "0 20px 40px rgba(35,92,56,0.15)" }}
-              style={{ willChange: "transform" }}
-              className="bg-white rounded-2xl p-7 border border-gray-100 hover:border-[#235c38]/30 transition-colors duration-300 group cursor-pointer"
+              transition={{ duration: 0.4, delay: 0.1 + i * 0.05, ease: "easeOut" }}
+              className="bg-white rounded-2xl p-7 border border-gray-100 hover:border-[#235c38]/30 hover:-translate-y-2 hover:shadow-xl transition-all duration-300 group cursor-pointer"
             >
-              <motion.div
-                whileHover={{ scale: 1.15, rotate: 6 }}
-                transition={{ type: "spring", stiffness: 400, damping: 18 }}
-                className="w-12 h-12 bg-[#235c38]/10 rounded-xl flex items-center justify-center text-[#235c38] mb-5 group-hover:bg-[#235c38] group-hover:text-white transition-colors duration-300"
+              <div
+                className="w-12 h-12 bg-[#235c38]/10 rounded-xl flex items-center justify-center text-[#235c38] mb-5 group-hover:bg-[#235c38] group-hover:text-white group-hover:scale-110 group-hover:rotate-6 transition-all duration-300"
               >
                 {f.icon}
-              </motion.div>
+              </div>
               <h4 className="font-bold text-gray-900 text-lg mb-2">{f.title}</h4>
               <p className="text-gray-500 text-sm leading-relaxed">{f.body}</p>
             </motion.div>

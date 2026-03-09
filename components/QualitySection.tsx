@@ -27,9 +27,9 @@ export default function QualitySection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           {/* Who We Are */}
           <motion.div
-            initial={{ opacity: 0, x: -40 }}
+            initial={{ opacity: 0, x: -20 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.7 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
           >
             <h3 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">Who We Are</h3>
             <p className="text-gray-500 text-sm leading-relaxed mb-6">
@@ -39,15 +39,15 @@ export default function QualitySection() {
             </p>
             {/* Factory image */}
             <div className="rounded-2xl overflow-hidden shadow-[0_16px_48px_rgba(0,0,0,0.14)] bg-gray-200 aspect-[4/3] relative group">
-              <div className="absolute inset-0 bg-[url('/pork2.jpg')] bg-cover bg-center scale-100 group-hover:scale-105 transition-transform duration-600 ease-out" />
+              <div className="absolute inset-0 bg-[url('/pork2.jpg')] bg-cover bg-center scale-100 group-hover:scale-105 transition-transform duration-500 ease-out" />
             </div>
           </motion.div>
 
           {/* Why Us */}
           <motion.div
-            initial={{ opacity: 0, x: 40 }}
+            initial={{ opacity: 0, x: 20 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.7, delay: 0.1 }}
+            transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
           >
             <h3 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">Why Us</h3>
             <p className="text-gray-500 text-sm leading-relaxed mb-6">

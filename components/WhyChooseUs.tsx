@@ -13,26 +13,26 @@ export default function WhyChooseUs() {
         <div className="grid grid-cols-1 lg:grid-cols-2">
           {/* Left – stacked images with badge */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
+            initial={{ opacity: 0, x: -30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
             className="relative bg-white flex items-center justify-center p-8 lg:p-12 min-h-[480px] lg:min-h-[560px]"
           >
             <div className="relative w-full h-full min-h-[420px] flex flex-col rounded-tr-[2.5rem] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.18)]">
               {/* Top image */}
               <div className="flex-1 bg-gray-200 flex items-center justify-center relative overflow-hidden border-b-2 border-white group">
-                <div className="absolute inset-0 bg-[url('/img3.jpg')] bg-cover bg-center scale-100 group-hover:scale-105 transition-transform duration-600 ease-out" />
+                <div className="absolute inset-0 bg-[url('/img3.jpg')] bg-cover bg-center scale-100 group-hover:scale-105 transition-transform duration-500 ease-out" />
               </div>
               {/* Bottom image */}
               <div className="flex-1 bg-gray-300 flex items-center justify-center relative overflow-hidden group">
-                <div className="absolute inset-0 bg-[url('/img2.jpg')] bg-cover bg-center scale-100 group-hover:scale-105 transition-transform duration-600 ease-out" />
+                <div className="absolute inset-0 bg-[url('/img2.jpg')] bg-cover bg-center scale-100 group-hover:scale-105 transition-transform duration-500 ease-out" />
               </div>
             </div>
             {/* Badge overlay */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
+              initial={{ opacity: 0, scale: 0.9 }}
               animate={inView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ duration: 0.5, delay: 0.5 }}
+              transition={{ duration: 0.4, delay: 0.3, ease: "easeOut" }}
               className="absolute top-1/2 left-12 -translate-y-1/2 bg-[#235c38] text-white p-5 shadow-2xl z-20 text-center min-w-[110px]"
             >
               <p className="text-3xl font-black leading-none">+25</p>
@@ -53,9 +53,9 @@ export default function WhyChooseUs() {
               About Us
             </motion.p>
             <motion.h2
-              initial={{ opacity: 0, y: 25 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.7, delay: 0.28, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
               className="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 leading-tight mb-6"
             >
               From Kitchen
@@ -63,9 +63,9 @@ export default function WhyChooseUs() {
               to Table
             </motion.h2>
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 15 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.38, ease: "easeOut" }}
+              transition={{ duration: 0.4, delay: 0.3, ease: "easeOut" }}
               className="text-gray-600 text-sm leading-relaxed mb-4"
             >
               We are a family-focused meat processing company committed to quality,
@@ -86,11 +86,9 @@ export default function WhyChooseUs() {
             <motion.a
               initial={{ opacity: 0, y: 10 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.58 }}
-              whileHover={{ scale: 1.05, x: 4 }}
-              whileTap={{ scale: 0.97 }}
+              transition={{ duration: 0.4, delay: 0.5, ease: "easeOut" }}
               href="#contact"
-              className="inline-block bg-[#CC0000] text-white px-7 py-3 font-bold text-sm uppercase tracking-wider hover:bg-[#aa0000] transition-colors duration-200 self-start"
+              className="inline-block bg-[#CC0000] text-white px-7 py-3 font-bold text-sm uppercase tracking-wider hover:bg-[#aa0000] hover:translate-x-1 transition-all duration-200 self-start touch-manipulation"
             >
               Read More
             </motion.a>

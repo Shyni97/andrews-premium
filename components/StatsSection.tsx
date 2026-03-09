@@ -38,20 +38,16 @@ export default function StatsSection() {
           {steps.map((step, i) => (
             <motion.div
               key={step.num}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: i * 0.09, ease: [0.16, 1, 0.3, 1] }}
-              whileHover={{ y: -6 }}
-              style={{ willChange: "transform" }}
-              className="text-center group cursor-default"
+              transition={{ duration: 0.4, delay: i * 0.06, ease: "easeOut" }}
+              className="text-center group cursor-default hover:-translate-y-2 transition-transform duration-300 ease-out"
             >
-              <motion.div
-                whileHover={{ scale: 1.1 }}
-                transition={{ type: "spring", stiffness: 400, damping: 18 }}
-                className="w-14 h-14 bg-[#CC0000] text-white font-black text-lg flex items-center justify-center mx-auto mb-4 group-hover:shadow-[0_8px_24px_rgba(204,0,0,0.35)] transition-shadow duration-300"
+              <div
+                className="w-14 h-14 bg-[#CC0000] text-white font-black text-lg flex items-center justify-center mx-auto mb-4 group-hover:shadow-[0_8px_24px_rgba(204,0,0,0.35)] group-hover:scale-105 transition-all duration-300 ease-out"
               >
                 {step.num}
-              </motion.div>
+              </div>
               <h4 className="font-bold text-gray-900 text-sm mb-1">{step.title}</h4>
               <p className="text-gray-500 text-xs leading-relaxed">{step.desc}</p>
             </motion.div>
